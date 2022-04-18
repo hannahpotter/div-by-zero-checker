@@ -94,6 +94,20 @@ public class DivByZeroTransfer extends CFTransfer {
             AnnotationMirror lhs,
             AnnotationMirror rhs) {
         // TODO
+        if (operator == BinaryOperator.DIVIDE || operator == BinaryOperator.MOD) {
+            return top();
+        }
+        if (operator == BinaryOperator.TIMES) {
+            if (equal(lhs, bottom()) && equal(rhs, bottom())) {
+                return bottom();
+            } else {
+                return top();
+            }
+        }
+        if (operator == BinaryOperator.PLUS || operator == BinaryOperator.MINUS) {
+            return top();
+        }
+
         return top();
     }
 
