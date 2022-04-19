@@ -32,7 +32,7 @@ public class DivByZeroVisitor extends BaseTypeVisitor<DivByZeroAnnotatedTypeFact
         // TODO
         if (DIVISION_OPERATORS.contains(node.getKind())) {
             ExpressionTree right = node.getRightOperand();
-            if (hasAnnotation(right, Top.class)){
+            if (hasAnnotation(right, Top.class) || hasAnnotation(right, Zero.class)){
                 return true;
             }
         }
@@ -52,7 +52,7 @@ public class DivByZeroVisitor extends BaseTypeVisitor<DivByZeroAnnotatedTypeFact
         // TODO
         if (DIVISION_OPERATORS.contains(node.getKind())) {
             ExpressionTree right = node.getExpression();
-            if (hasAnnotation(right, Top.class)){
+            if (hasAnnotation(right, Top.class) || hasAnnotation(right, Zero.class)){
                 return true;
             }
         }
