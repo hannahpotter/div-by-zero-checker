@@ -230,14 +230,6 @@ public class DivByZeroTransfer extends CFTransfer {
                 return reflect(Zero.class);
             }
 
-            /*if (equal(lhs, reflect(NonZero.class)) && equal(rhs, reflect(NonZero.class))) {
-                return top();
-            }
-
-            if (equal(lhs, top()) || equal(rhs, top())) {
-                return top();
-            }*/
-
             if (equal(lhs, bottom()) || equal(rhs, bottom())) {
                 return bottom();
             }
@@ -261,9 +253,6 @@ public class DivByZeroTransfer extends CFTransfer {
 
             if (equal(rhs, reflect(Zero.class))) {
                 // Case where both are zero is already covered above
-                /*if (equal(lhs, reflect(Zero.class))) {
-                    return reflect(Zero.class);
-                } else */
                 if (equal(lhs, reflect(Pos.class))) {
                     return reflect(Pos.class);
                 } else if (equal(lhs, reflect(Neg.class))) {
@@ -280,14 +269,6 @@ public class DivByZeroTransfer extends CFTransfer {
             if ((equal(lhs, reflect(Pos.class)) && equal(rhs, reflect(Neg.class)))) {
                 return reflect(Pos.class);
             }
-
-            /*if (equal(lhs, reflect(NonZero.class)) && equal(rhs, reflect(NonZero.class))) {
-                return top();
-            }
-
-            if (equal(lhs, top()) || equal(rhs, top())) {
-                return top();
-            }*/
 
             if (equal(lhs, bottom()) || equal(rhs, bottom())) {
                 return bottom();
