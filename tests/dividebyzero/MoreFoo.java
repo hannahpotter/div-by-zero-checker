@@ -192,4 +192,15 @@ class MoreFoo {
             }
         }
     }
+
+    /* Tests after errors happened */
+
+    public static void errors(int y) {
+        // :: error: divide.by.zero
+        int i = y / 0;
+        int j = 2 / i;
+
+        // :: error: divide.by.zero
+        int k = i / 0;
+    }
 }
